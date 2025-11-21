@@ -1,16 +1,18 @@
-package com.ExamenMocLVG.examenMocLVG.Entity;
+package com.ExamenMocLVG.examenMocLVG.Service;
 
+import com.ExamenMocLVG.examenMocLVG.Entity.Producto;
 import com.ExamenMocLVG.examenMocLVG.Repository.ProductoRepository;
-import com.ExamenMocLVG.examenMocLVG.Service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProductoServiceImpl implements ProductoService {
 
     @Autowired
-    private ProductoRepository productoRepository;
+    ProductoRepository productoRepository;
 
     @Override
     public List<Producto> findAllProductos() {
