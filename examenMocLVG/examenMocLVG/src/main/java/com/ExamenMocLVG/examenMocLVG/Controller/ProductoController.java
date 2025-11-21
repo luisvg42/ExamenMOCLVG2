@@ -2,17 +2,21 @@ package com.ExamenMocLVG.examenMocLVG.Controller;
 
 import com.ExamenMocLVG.examenMocLVG.Entity.Producto;
 import com.ExamenMocLVG.examenMocLVG.Service.ProductoService;
+import com.ExamenMocLVG.examenMocLVG.Service.ProductoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
+//@RequestMapping(path="/")
 public class ProductoController {
 
     @Autowired
-    private ProductoService productoService;
+    private ProductoServiceImpl productoService;
 
     @PostMapping(value = "/productos")
     public Producto addProducto(@RequestBody Producto producto) {
@@ -40,7 +44,7 @@ public class ProductoController {
         List<Producto> listaProductos = new ArrayList<>();
         if (precio!=0.0){
             listaProductos = this.productoService.findByPrecio(precio);
-        }else if (categoria!=""){
+        }else if (!categoria.isEmpty()){
             listaProductos = this.productoService.findByCategoria(categoria);
         }else {
             listaProductos = this.productoService.findAllProductos();
