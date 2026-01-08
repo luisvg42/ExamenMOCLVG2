@@ -41,7 +41,7 @@ pipeline {
                   if exist versiones rmdir /S /Q versiones
                   echo Se crea el directorio versiones con la última versión de la API
                   mkdir versiones
-                  copy target\\${env.ARTIFACT_ID}-${env.PROJECT_VERSION}.jar versiones\\
+                  copy target\\${env.JAR_NAME}-${env.PROJECT_VERSION}.jar versiones\\
                 """
             }
         }

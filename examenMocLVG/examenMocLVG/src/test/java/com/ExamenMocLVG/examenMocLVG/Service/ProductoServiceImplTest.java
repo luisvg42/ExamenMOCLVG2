@@ -22,7 +22,7 @@ class ProductoServiceImplTest {
     private ProductoRepository productoRepository;
 
     @InjectMocks
-    private ProductoService productoService;
+    private ProductoServiceImpl productoService;
 
     @Test
     void findAllProductos() {
